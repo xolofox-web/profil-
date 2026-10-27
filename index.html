@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex - Digital Creator</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-grid"></div>
+
+    <main class="container fade-in">
+        <!-- Header -->
+        <header class="header">
+            <div class="status-badge">
+                <span class="dot"></span> Online
+            </div>
+            <div class="header-actions">
+                <button id="copy-btn" class="icon-btn" title="Copy Link" aria-label="Copy Link">
+                    <i data-lucide="link"></i>
+                </button>
+                <button id="theme-toggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                    <i data-lucide="moon" class="theme-icon-dark"></i>
+                    <i data-lucide="sun" class="theme-icon-light"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="cover-image"></div>
+            <div class="profile-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Profile Picture" class="profile-pic">
+                <div class="profile-info">
+                    <h1 class="name">
+                        Alex Dev 
+                        <i data-lucide="badge-check" class="verified-icon"></i>
+                    </h1>
+                    <p class="bio">Full Stack Developer & UI Designer. Building clean and minimal digital experiences.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-value">45.8K+</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value">120+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="links-section">
+            
+            <!-- Kategori: Website -->
+            <h2 class="category-title">Websites</h2>
+            <div class="links-grid">
+                <a href="https://example.com" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="globe"></i></div>
+                    <div class="link-text">
+                        <h3>Main Website</h3>
+                        <p>Portfolio & Blog</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+                <a href="https://example.com/store" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="shopping-bag"></i></div>
+                    <div class="link-text">
+                        <h3>Store</h3>
+                        <p>Digital Products</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+            </div>
+
+            <!-- Kategori: WhatsApp -->
+            <h2 class="category-title">WhatsApp</h2>
+            <div class="links-grid">
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="message-circle"></i></div>
+                    <div class="link-text">
+                        <h3>Personal Chat</h3>
+                        <p>Let's talk</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+                <a href="https://chat.whatsapp.com/..." target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="users"></i></div>
+                    <div class="link-text">
+                        <h3>Community Group</h3>
+                        <p>Join discussion</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+            </div>
+
+            <!-- Kategori: Social Media -->
+            <h2 class="category-title">Social Media</h2>
+            <div class="links-grid">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="instagram"></i></div>
+                    <div class="link-text">
+                        <h3>Instagram</h3>
+                        <p>@alexdev</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="music"></i></div>
+                    <div class="link-text">
+                        <h3>TikTok</h3>
+                        <p>@alexdev</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+                <a href="https://t.me/username" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon"><i data-lucide="send"></i></div>
+                    <div class="link-text">
+                        <h3>Telegram</h3>
+                        <p>@alexdev</p>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Alex Dev. All rights reserved.</p>
+            <p class="footer-sub">Designed with simplicity.</p>
+        </footer>
+    </main>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
