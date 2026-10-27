@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafi Aditya — Software Engineer</title>
+  <meta name="description" content="Portofolio pribadi Rafi Aditya Pratama, software engineer yang berfokus pada pengembangan web modern, antarmuka bersih, dan pengalaman pengguna yang nyaman." />
+  <meta name="author" content="Rafi Aditya Pratama" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rafi Aditya — Software Engineer" />
+  <meta property="og:description" content="Portofolio pribadi Rafi Aditya Pratama, software engineer yang berfokus pada pengembangan web modern." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&h=630&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233b82f6'/><text x='50' y='68' font-size='54' font-family='Arial,sans-serif' font-weight='700' fill='white' text-anchor='middle'>R</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Langsung ke konten</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="Beranda">Rafi<span>.</span></a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navigasi utama">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema">
+          <svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="status-badge">
+            <span class="dot"></span> Available for Projects
+          </span>
+
+          <h1 class="hero-title">
+            Hi, saya <span class="accent">Rafi Aditya</span>
+          </h1>
+
+          <p class="hero-desc">
+            Software engineer yang berfokus pada pengembangan web modern.
+            Saya membangun antarmuka yang bersih, cepat, dan nyaman digunakan —
+            dengan perhatian pada detail dan pengalaman pengguna.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">Lihat Profil</a>
+            <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+          </div>
+
+          <div class="hero-social" aria-label="Media sosial">
+            <a href="https://github.com/username" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4C17.6 4.9 18.6 5.2 18.6 5.2c.6 1.7.2 2.9.1 3.2.8.9 1.2 1.9 1.2 3.2 0 4.6-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            </a>
+            <a href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="mailto:rafi@example.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop"
+            alt="Foto profil Rafi Aditya"
+            width="600" height="600" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">About</span>
+          <h2 class="section-title">Tentang Saya</h2>
+          <p class="section-desc">Sedikit cerita tentang siapa saya dan apa yang saya kerjakan.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Nama saya <strong>Rafi Aditya Pratama</strong>, seorang software engineer
+              yang berbasis di Yogyakarta. Saya memiliki pengalaman lebih dari tiga tahun
+              dalam membangun aplikasi web — mulai dari landing page, dashboard internal,
+              hingga produk SaaS berskala kecil menengah.
+            </p>
+            <p>
+              Saya menyukai desain yang sederhana namun fungsional. Bagi saya, produk
+              yang baik adalah produk yang tidak membuat penggunanya berpikir dua kali.
+              Karena itu, saya selalu berusaha menyeimbangkan estetika, performa,
+              dan aksesibilitas dalam setiap pekerjaan.
+            </p>
+            <p>
+              Di luar pekerjaan, saya aktif menulis catatan teknis di blog pribadi,
+              berkontribusi ke proyek open source, dan sesekali mengajar kelas
+              pemrograman web untuk pemula.
+            </p>
+          </div>
+
+          <aside class="about-facts reveal">
+            <div class="fact-item">
+              <span class="fact-label">Lokasi</span>
+              <span class="fact-value">Yogyakarta, Indonesia</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Pengalaman</span>
+              <span class="fact-value">3+ tahun</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Fokus</span>
+              <span class="fact-value">Frontend & Web Apps</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Bahasa</span>
+              <span class="fact-value">Indonesia, Inggris</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Skills</span>
+          <h2 class="section-title">Keahlian</h2>
+          <p class="section-desc">Tools dan teknologi yang saya gunakan sehari-hari.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">HTML & CSS</h3>
+            <p class="skill-desc">Markup semantik, layout responsif, dan styling modern dengan Flexbox & Grid.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">JavaScript</h3>
+            <p class="skill-desc">ES6+, DOM manipulation, async programming, dan best practice performa.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="2"/>
+                <ellipse cx="12" cy="12" rx="10" ry="4.5"/>
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/>
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">React</h3>
+            <p class="skill-desc">Component-based UI, hooks, state management, dan integrasi API.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+                <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Node.js</h3>
+            <p class="skill-desc">REST API, Express, autentikasi, dan integrasi database.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">UI/UX Design</h3>
+            <p class="skill-desc">Wireframe, prototyping, dan design system dengan pendekatan minimalis.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Git & GitHub</h3>
+            <p class="skill-desc">Version control, branching strategy, dan kolaborasi tim.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Projects</span>
+          <h2 class="section-title">Proyek Pilihan</h2>
+          <p class="section-desc">Beberapa proyek yang pernah saya kerjakan dan banggakan.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-thumb">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Tampilan dashboard Nusantara Analytics" width="800" height="500" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">React</span><span class="tag">Node.js</span>
+              </div>
+              <h3 class="project-title">Nusantara Analytics</h3>
+              <p class="project-desc">Dashboard analitik untuk UMKM dengan visualisasi data penjualan real-time dan laporan otomatis.</p>
+              <a href="#" class="project-link" target="_blank" rel="noopener">
+                Lihat Proyek
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-thumb">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop" alt="Tampilan website Kopi Kode" width="800" height="500" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Next.js</span><span class="tag">Stripe</span>
+              </div>
+              <h3 class="project-title">Kopi Kode</h3>
+              <p class="project-desc">Platform e-commerce untuk kedai kopi lokal, dilengkapi pembayaran online dan manajemen stok.</p>
+              <a href="#" class="project-link" target="_blank" rel="noopener">
+                Lihat Proyek
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-thumb">
+              <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop" alt="Tampilan aplikasi TaskFlow" width="800" height="500" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">React</span><span class="tag">Firebase</span>
+              </div>
+              <h3 class="project-title">TaskFlow</h3>
+              <p class="project-desc">Aplikasi manajemen tugas kolaboratif dengan drag-and-drop, reminder, dan mode offline.</p>
+              <a href="#" class="project-link" target="_blank" rel="noopener">
+                Lihat Proyek
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">Mari Bekerja Sama</h2>
+          <p class="section-desc">Punya ide, proyek, atau ingin sekadar menyapa? Saya siap mendengarkan.</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3 class="contact-title">Terbuka untuk peluang baru</h3>
+          <p class="contact-desc">
+            Saya menerima proyek freelance, kolaborasi jangka panjang, maupun diskusi
+            seputar pengembangan web. Waktu respons rata-rata di bawah 24 jam.
+          </p>
+
+          <div class="contact-actions">
+            <a href="https://wa.me/6281234567890?text=Halo%20Rafi%2C%20saya%20tertarik%20untuk%20berkolaborasi." class="btn btn-primary" target="_blank" rel="noopener">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.94L4 20l4.2-1.1a7.9 7.9 0 0 0 3.84 1h.01a7.94 7.94 0 0 0 5.55-13.58zM12.05 18.5a6.6 6.6 0 0 1-3.35-.92l-.24-.14-2.49.65.66-2.43-.16-.25a6.6 6.6 0 1 1 5.58 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.42.05a5.4 5.4 0 0 1-1.6-.99 6 6 0 0 1-1.1-1.38c-.12-.2 0-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.07-.61-1.47-.16-.38-.32-.33-.44-.34l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.71 1.93.81 2.06c.1.13 1.4 2.14 3.4 3 .48.2.85.32 1.14.41.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.47.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/></svg>
+              Chat via WhatsApp
+            </a>
+            <a href="mailto:rafi@example.com" class="btn btn-ghost">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              Kirim Email
+            </a>
+          </div>
+
+          <div class="contact-socials">
+            <a href="mailto:rafi@example.com" class="social-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <span>rafi@example.com</span>
+            </a>
+            <a href="https://instagram.com/username" target="_blank" rel="noopener" class="social-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>@username</span>
+            </a>
+            <a href="https://github.com/username" target="_blank" rel="noopener" class="social-item">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4C17.6 4.9 18.6 5.2 18.6 5.2c.6 1.7.2 2.9.1 3.2.8.9 1.2 1.9 1.2 3.2 0 4.6-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              <span>github.com/username</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo">Rafi<span>.</span></a>
+      <p class="footer-text">
+        &copy; <span id="year"></span> Rafi Aditya Pratama. Dibuat dengan ketenangan.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
