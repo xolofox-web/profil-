@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyxell Dev - Profile</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Grid Background -->
+    <div class="bg-grid"></div>
+
+    <main class="container fade-in">
+        
+        <!-- Header (Minimalis) -->
+        <header class="header">
+            <div class="status-badge">
+                <span class="dot"></span> Online
+            </div>
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                <i data-lucide="moon" class="theme-icon-dark"></i>
+                <i data-lucide="sun" class="theme-icon-light"></i>
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- GANTI URL DI BAWAH INI DENGAN GAMBAR BANNER ANDA -->
+            <div class="cover-banner" style="background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;"></div>
+            <div class="profile-wrapper">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Profile Picture" class="profile-pic">
+            </div>
+            <h1 class="name">
+                Zyxell Dev 
+                <i data-lucide="badge-check" class="verified-icon"></i>
+            </h1>
+            <p class="bio">Penyedia berbagai produk dan layanan digital.</p>
+        </section>
+
+        <!-- Links Section -->
+        <section class="links-section">
+            
+            <!-- Websites -->
+            <div class="category">
+                <h2 class="category-title">Websites</h2>
+                <div class="links-grid">
+                    
+                    <!-- Link 1 -->
+                    <a href="https://example.com/alight" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon"><i data-lucide="layout"></i></div>
+                        <div class="link-text">
+                            <h3>Alight Motion</h3>
+                            <p>Bulk & create account</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+
+                    <!-- Link 2 -->
+                    <a href="https://example.com/store" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon"><i data-lucide="shopping-bag"></i></div>
+                        <div class="link-text">
+                            <h3>Store</h3>
+                            <p>Digital Products</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+
+                    <!-- Link 3 (BARU DITAMBAHKAN) -->
+                    <a href="https://example.com/website3" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon"><i data-lucide="globe"></i></div>
+                        <div class="link-text">
+                            <h3>Main Website</h3>
+                            <p>Portfolio & Blog</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="category">
+                <h2 class="category-title">WhatsApp</h2>
+                <div class="links-grid">
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        </div>
+                        <div class="link-text">
+                            <h3>Personal Chat</h3>
+                            <p>Let's talk</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+                    
+                    <a href="https://chat.whatsapp.com/..." target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon"><i data-lucide="users"></i></div>
+                        <div class="link-text">
+                            <h3>Community Group</h3>
+                            <p>Join discussion</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="category">
+                <h2 class="category-title">Social Media</h2>
+                <div class="links-grid">
+                    
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </div>
+                        <div class="link-text">
+                            <h3>Instagram</h3>
+                            <p>@xolofox</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+                    
+                    <!-- TikTok -->
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </div>
+                        <div class="link-text">
+                            <h3>TikTok</h3>
+                            <p>@zyxell</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+
+                    <!-- Telegram -->
+                    <a href="https://t.me/username" target="_blank" rel="noopener" class="link-card">
+                        <div class="link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        </div>
+                        <div class="link-text">
+                            <h3>Telegram</h3>
+                            <p>@zyxell</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="link-arrow"></i>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Zyxell Dev. All rights reserved.</p>
+            <p class="footer-sub">Designed with simplicity.</p>
+        </footer>
+    </main>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
