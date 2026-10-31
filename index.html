@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Zyxell Dev — Developer & Digital Services. Personal hub for digital services, projects, and useful online tools." />
+<title>Zyxell Dev</title>
+<style>
+  /* ---------- Theme tokens ---------- */
+  :root {
+    --bg:            #0a0e17;
+    --bg-soft:       #0f1420;
+    --card-bg:       rgba(255, 255, 255, 0.035);
+    --card-bg-hover: rgba(255, 255, 255, 0.06);
+    --card-border:   rgba(255, 255, 255, 0.08);
+    --card-border-h: rgba(167, 139, 250, 0.28);
+    --text:          #e6e8ef;
+    --text-muted:    #8b93a7;
+    --text-subtle:   #5c6478;
+    --accent:        #a78bfa;
+    --accent-strong: #8b5cf6;
+    --pink:          #ec4899;
+    --online:        #22c55e;
+    --gradient:      linear-gradient(135deg, #8b5cf6, #ec4899);
+    --radius:        14px;
+    --radius-sm:     10px;
+  }
+
+  [data-theme="light"] {
+    --bg:            #f6f7fa;
+    --bg-soft:       #ffffff;
+    --card-bg:       #ffffff;
+    --card-bg-hover: #ffffff;
+    --card-border:   rgba(15, 20, 32, 0.08);
+    --card-border-h: rgba(124, 58, 237, 0.30);
+    --text:          #161a24;
+    --text-muted:    #5c6478;
+    --text-subtle:   #8b93a7;
+    --accent:        #7c3aed;
+    --accent-strong: #6d28d9;
+    --pink:          #db2777;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Keyboard focus */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  /* ---------- Layout ---------- */
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 16px 48px;
+  }
+
+  /* ---------- Theme toggle ---------- */
+  .theme-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 100;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover { background: var(--card-bg-hover); transform: translateY(-1px); }
+  .theme-toggle:active { transform: scale(0.96); }
+
+  /* ---------- Banner ---------- */
+  .banner {
+    height: 130px;
+    margin: 0 -16px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.38), transparent 55%),
+      radial-gradient(circle at 82% 85%, rgba(236, 72, 153, 0.28), transparent 55%),
+      var(--bg-soft);
+    border-bottom: 1px solid var(--card-border);
+  }
+  [data-theme="light"] .banner {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.18), transparent 55%),
+      radial-gradient(circle at 82% 85%, rgba(236, 72, 153, 0.12), transparent 55%),
+      var(--bg-soft);
+  }
+
+  /* ---------- Profile header ---------- */
+  .profile {
+    position: relative;
+    margin-top: -44px;
+    padding: 0 4px 4px;
+  }
+
+  .avatar-wrap {
+    position: relative;
+    display: inline-block;
+    width: 88px;
+    height: 88px;
+  }
+  .avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--gradient);
+    border: 4px solid var(--bg);
+  }
+  .online-dot {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--online);
+    border: 3px solid var(--bg);
+  }
+
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+  .verified {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .role {
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--online);
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, filter 0.2s, border-color 0.2s;
+  }
+  .btn-primary {
+    background: var(--gradient);
+    color: #fff;
+    border-color: transparent;
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--card-bg);
+    color: var(--text);
+  }
+  .btn-secondary:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--card-border-h);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Sections ---------- */
+  .section { margin-top: 28px; }
+
+  .section-title {
+    margin: 0 0 10px 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .card:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--card-border-h);
+    transform: translateY(-1px);
+  }
+  .card:active { transform: translateY(0); }
+
+  .card-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+  }
+  .card-icon svg { width: 19px; height: 19px; }
+
+  .card-body { flex: 1 1 auto; min-width: 0; }
+  .card-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-arrow {
+    flex-shrink: 0;
+    color: var(--text-subtle);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .card:hover .card-arrow {
+    color: var(--accent);
+    transform: translateX(2px);
+  }
+
+  /* ---------- About ---------- */
+  .about-card {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid var(--card-border);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text-subtle);
+  }
+  .footer .tagline { opacity: 0.75; }
+
+  /* ---------- Reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.001ms !important;
+      animation-duration: 0.001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" type="button">
+    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+         aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <div class="page">
+
+    <!-- ===== Banner + Profile ===== -->
+    <div class="banner" aria-hidden="true"></div>
+
+    <header class="profile">
+      <div class="avatar-wrap">
+        <div class="avatar" aria-hidden="true">Z</div>
+        <span class="online-dot" title="Online" aria-label="Online"></span>
+      </div>
+
+      <h1 class="name-row">
+        Zyxell Dev
+        <svg class="verified" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-label="Verified" role="img">
+          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.16"/>
+          <path d="M8.5 12.2l2.4 2.4 4.6-4.8"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </h1>
+
+      <p class="role">Developer &amp; Digital Services</p>
+
+      <span class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Online now
+      </span>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="https://store.zyxell.dev" target="_blank" rel="noopener">Visit Store</a>
+        <a class="btn btn-secondary" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Contact Me</a>
+      </div>
+    </header>
+
+    <!-- ===== Websites ===== -->
+    <section class="section" aria-labelledby="sec-websites">
+      <h2 class="section-title" id="sec-websites">Websites</h2>
+      <div class="card-list">
+
+        <a class="card" href="https://alightmotion.zyxell.dev" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#a78bfa" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Alight Motion</span>
+            <span class="card-desc">Account &amp; Digital Services</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+        <a class="card" href="https://downloader.zyxell.dev" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#ec4899" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Downloader</span>
+            <span class="card-desc">Download Media</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+        <a class="card" href="https://store.zyxell.dev" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#8b5cf6" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Store</span>
+            <span class="card-desc">Digital Products</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section" aria-labelledby="sec-about">
+      <h2 class="section-title" id="sec-about">About</h2>
+      <p class="about-card">
+        Zyxell Dev is a personal hub for digital services, projects, and useful online tools.
+      </p>
+    </section>
+
+    <!-- ===== WhatsApp ===== -->
+    <section class="section" aria-labelledby="sec-whatsapp">
+      <h2 class="section-title" id="sec-whatsapp">WhatsApp</h2>
+      <div class="card-list">
+
+        <a class="card" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#22c55e" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.55-13.56zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 12.26-3.5 6.6 6.6 0 0 1-6.67 6.59zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-.99-1.18-1.1-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.07-.6-1.46-.16-.38-.32-.33-.44-.34l-.38-.01c-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.63s.7 1.89.8 2.02c.1.13 1.38 2.11 3.34 2.96.47.2.83.32 1.11.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Personal Chat</span>
+            <span class="card-desc">Get in touch</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+        <a class="card" href="https://chat.whatsapp.com/REPLACE_GROUP_INVITE" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#22c55e" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Community Group</span>
+            <span class="card-desc">Join the community</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== Social Media ===== -->
+    <section class="section" aria-labelledby="sec-social">
+      <h2 class="section-title" id="sec-social">Social Media</h2>
+      <div class="card-list">
+
+        <a class="card" href="https://instagram.com/zyxell.dev" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#e1306c" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Instagram</span>
+            <span class="card-desc">@zyxell.dev</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+        <a class="card" href="https://tiktok.com/@zyxell.dev" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:var(--text)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">TikTok</span>
+            <span class="card-desc">@zyxell.dev</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+        <a class="card" href="https://t.me/zyxell" target="_blank" rel="noopener">
+          <span class="card-icon" style="color:#2aabee" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21.94 4.36l-3.32 15.68c-.25 1.1-.9 1.38-1.83.86l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.49c.41-.36-.09-.56-.63-.2L6.31 13.2l-5-1.56c-1.08-.34-1.1-1.08.23-1.6L20.7 3c.9-.34 1.69.2 1.24 1.36z"/>
+            </svg>
+          </span>
+          <span class="card-body">
+            <span class="card-title">Telegram</span>
+            <span class="card-desc">@zyxell</span>
+          </span>
+          <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      © 2026 Zyxell Dev. All rights reserved.
+      <div class="tagline">Built with simplicity.</div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      const root  = document.documentElement;
+      const btn   = document.getElementById("themeToggle");
+      const icon  = document.getElementById("themeIcon");
+
+      const SUN = '<circle cx="12" cy="12" r="5"/>' +
+                  '<line x1="12" y1="1"  x2="12" y2="3"/>' +
+                  '<line x1="12" y1="21" x2="12" y2="23"/>' +
+                  '<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>' +
+                  '<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>' +
+                  '<line x1="1"  y1="12" x2="3"  y2="12"/>' +
+                  '<line x1="21" y1="12" x2="23" y2="12"/>' +
+                  '<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>' +
+                  '<line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>';
+      const MOON = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+
+      function apply(theme) {
+        root.setAttribute("data-theme", theme);
+        try { localStorage.setItem("zyxell-theme", theme); } catch (e) {}
+        icon.innerHTML = theme === "dark" ? MOON : SUN;
+      }
+
+      let saved = null;
+      try { saved = localStorage.getItem("zyxell-theme"); } catch (e) {}
+      if (!saved) {
+        saved = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)
+          ? "light" : "dark";
+      }
+      apply(saved);
+
+      btn.addEventListener("click", function () {
+        apply(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+    })();
+  </script>
+</body>
+</html>
