@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zyxell Dev</title>
+
+<!-- =========================================
+     TAMBAHAN: META TAGS UNTUK PREVIEW LINK
+     ========================================= -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zyxell.my.id">
+<meta property="og:title" content="Zyxell Dev">
+<meta property="og:description" content="Developer & Digital Services">
+<!-- Menggunakan gambar dari URL avatar kamu. Bisa diganti dengan link gambar banner khusus jika ada -->
+<meta property="og:image" content="https://raw.githubusercontent.com/ZrooPro/SaveDat2/main/uploads/20261031_175345_350_qildwmzv.jpg">
+
+<!-- Twitter Card (Opsional) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zyxell Dev">
+<meta name="twitter:description" content="Developer & Digital Services">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ZrooPro/SaveDat2/main/uploads/20261031_175345_350_qildwmzv.jpg">
+<!-- ========================================= -->
+
+<style>
+  /* =========================================
+     DESIGN TOKENS
+     ========================================= */
+  :root {
+    --bg-base:       #09090b;
+    --bg-surface:    #18181b; 
+    --bg-hover:      #27272a;
+    
+    --border-color:  #27272a;
+    --border-hover:  #3f3f46;
+    
+    --text-primary:  #f4f4f5;
+    --text-secondary:#a1a1aa;
+    --text-tertiary: #71717a;
+    
+    --accent-purple: #a855f7;
+    --accent-pink:   #ec4899;
+    --online-color:  #10b981;
+    
+    --font-sans:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono:     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    --radius-card:   12px;
+    --radius-btn:    8px;
+    
+    --transition:    all 0.15s ease-out;
+  }
+
+  [data-theme="light"] {
+    --bg-base:       #fafafa;
+    --bg-surface:    #ffffff;
+    --bg-hover:      #f4f4f5;
+    
+    --border-color:  #e4e4e7;
+    --border-hover:  #d4d4d8;
+    
+    --text-primary:  #09090b;
+    --text-secondary:#52525b;
+    --text-tertiary: #a1a1aa;
+    
+    --accent-purple: #7e22ce;
+    --accent-pink:   #be185d;
+  }
+
+  /* =========================================
+     RESET & BASE
+     ========================================= */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; 
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  a { 
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent-purple);
+  }
+
+  /* =========================================
+     LAYOUT
+     ========================================= */
+  .wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* =========================================
+     THEME TOGGLE
+     ========================================= */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .theme-toggle:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
+  }
+
+  .theme-toggle:active { transform: scale(0.92); }
+
+  /* =========================================
+     HEADER / PROFILE
+     ========================================= */
+  .header-banner {
+    height: 80px;
+    margin: 0 -20px;
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.15) 0%, rgba(9, 9, 11, 0) 100%);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  [data-theme="light"] .header-banner {
+    background: linear-gradient(180deg, rgba(126, 34, 206, 0.08) 0%, rgba(250, 250, 250, 0) 100%);
+  }
+
+  .profile {
+    margin-top: -32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .avatar-wrapper {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+    border: 2px solid var(--bg-base);
+    box-shadow: 0 0 0 1px var(--border-color);
+    overflow: hidden; /* Memastikan gambar tidak keluar dari lingkaran */
+  }
+
+  /* CSS Tambahan untuk Gambar Avatar */
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    color: var(--text-primary);
+  }
+
+  .icon-verified {
+    color: var(--accent-purple);
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+  }
+
+  .role {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    width: fit-content;
+    margin-top: 2px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--online-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
+    70% { box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: var(--radius-btn);
+    transition: var(--transition);
+    cursor: pointer;
+    letter-spacing: 0.1px;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-base);
+    border: 1px solid transparent;
+  }
+  
+  .btn-primary:hover { opacity: 0.9; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-surface);
+    border-color: var(--border-hover);
+  }
+
+  /* =========================================
+     SECTIONS & CARDS
+     ========================================= */
+  .section { margin-top: 32px; }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    padding: 0 4px;
+  }
+
+  .list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .list-item:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+
+  .list-item:active { transform: scale(0.98) translateY(0); }
+
+  .item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 14px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+  }
+
+  .list-item:hover .item-icon { color: var(--text-primary); }
+
+  .item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .item-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .item-arrow {
+    color: var(--text-tertiary);
+    margin-left: 12px;
+    transition: var(--transition);
+  }
+
+  .list-item:hover .item-arrow {
+    color: var(--text-primary);
+    transform: translateX(2px);
+  }
+
+  /* =========================================
+     FOOTER
+     ========================================= */
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <div class="wrapper">
+    
+    <!-- PROFILE HEADER -->
+    <div class="header-banner"></div>
+    
+    <header class="profile">
+      <div class="avatar-wrapper">
+        <div class="avatar" id="profileAvatar">Z</div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="name-row">
+          <h1 class="name" id="profileName">Zyxell Dev</h1>
+          <svg class="icon-verified" viewBox="0 0 24 24" fill="none" aria-label="Verified">
+            <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>
+            <path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <p class="role" id="profileRole">Developer &amp; Digital Services</p>
+        
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span id="profileStatus">Online</span>
+        </div>
+      </div>
+
+      <!-- TOMBOL PROFIL -->
+      <div class="action-buttons">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="profileStoreLink">Visit Store</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="profileContactLink">Contact Me</a>
+      </div>
+    </header>
+
+    <!-- 1. ABOUT -->
+    <section class="section">
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        Zyxell Dev is a personal hub for digital services, projects, and useful online tools.
+      </p>
+    </section>
+
+    <!-- 2. WEBSITES -->
+    <section class="section">
+      <h2 class="section-title">Websites</h2>
+      <div class="list-group">
+        
+        <!-- GANTI LINK ALIGHT MOTION -->
+        <a href="https://alight-bulk.vercel.app" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Alight Motion</span>
+            <span class="item-desc">Account &amp; Digital Services</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <!-- GANTI LINK DOWNLOADER -->
+        <a href="https://zyxellvar.vercel.app" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Downloader</span>
+            <span class="item-desc">Download Media</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <!-- GANTI LINK STORE -->
+        <a href="https://ayven.my.id" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Store</span>
+            <span class="item-desc">Digital Products</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. WHATSAPP -->
+    <section class="section">
+      <h2 class="section-title">WhatsApp</h2>
+      <div class="list-group">
+        
+        <!-- GANTI LINK PERSONAL CHAT -->
+        <a href="https://wa.me/6285779126072" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Personal Chat</span>
+            <span class="item-desc">Get in touch</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <!-- GANTI LINK COMMUNITY GROUP -->
+        <a href="https://chat.whatsapp.com/GZzZcCyx0iBHkY6ZOeHhuX?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Community Group</span>
+            <span class="item-desc">Join the community</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. SOCIAL MEDIA -->
+    <section class="section">
+      <h2 class="section-title">Social Media</h2>
+      <div class="list-group">
+        
+        <!-- GANTI LINK INSTAGRAM -->
+        <a href="https://www.instagram.com/zyxellvar?srtk=cW1iMnZoY2cxa2Ix" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Instagram</span>
+            <span class="item-desc">@Zyxell</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <!-- GANTI LINK TIKTOK -->
+        <a href="https://www.tiktok.com/@zyxellvar?_r=1&_t=ZS-9B1EWlFnBgo" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">TikTok</span>
+            <span class="item-desc">@zyxellvar</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <!-- GANTI LINK TELEGRAM -->
+        <a href="https://t.me/Zyxelvar" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div class="item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+          <div class="item-content">
+            <span class="item-title">Telegram</span>
+            <span class="item-desc">@Zyxellvar</span>
+          </div>
+          <svg class="item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>&copy; 2026 Zyxell Dev. All rights reserved.</div>
+      <div style="margin-top: 4px; opacity: 0.6;">Built with simplicity.</div>
+    </footer>
+
+  </div>
+
+  <script>
+    /* =========================================
+       KONFIGURASI PROFIL (UBAH DATA DI SINI)
+       ========================================= */
+    const PROFILE_CONFIG = {
+      // Jika ingin pakai gambar, isi link gambar di bawah ini. 
+      // Contoh: "https://linkgambar.com/foto.jpg"
+      // Jika ingin pakai huruf inisial saja, kosongkan ("").
+
+      avatarUrl: "https://raw.githubusercontent.com/ZrooPro/SaveDat2/main/uploads/20261031_175345_350_qildwmzv.jpg", 
+      
+      avatarInitial: "Z", // Huruf cadangan jika avatarUrl kosong
+      name: "Zyxell Dev",
+      role: "Developer & Digital Services",
+      status: "Online",
+      storeLink: "https://ayven.my.id",
+      contactLink: "https://wa.me/6285779126072"
+    };
+
+    // Fungsi untuk menerapkan konfigurasi ke HTML
+    const avatarElement = document.getElementById('profileAvatar');
+    
+    // Cek apakah user mengisi URL gambar
+    if (PROFILE_CONFIG.avatarUrl && PROFILE_CONFIG.avatarUrl.trim() !== "") {
+      avatarElement.innerHTML = `<img src="${PROFILE_CONFIG.avatarUrl}" alt="${PROFILE_CONFIG.name}">`;
+    } else {
+      avatarElement.textContent = PROFILE_CONFIG.avatarInitial;
+    }
+
+    document.getElementById('profileName').textContent = PROFILE_CONFIG.name;
+    document.getElementById('profileRole').textContent = PROFILE_CONFIG.role;
+    document.getElementById('profileStatus').textContent = PROFILE_CONFIG.status;
+    document.getElementById('profileStoreLink').href = PROFILE_CONFIG.storeLink;
+    document.getElementById('profileContactLink').href = PROFILE_CONFIG.contactLink;
+
+
+    /* =========================================
+       LOGIKA TEMA TERANG / GELAP
+       ========================================= */
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    
+    const moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    const sunPath = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+    const getPreferredTheme = () => {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    };
+
+    const setTheme = (theme) => {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      icon.innerHTML = theme === 'dark' ? moonPath : sunPath;
+    };
+
+    setTheme(getPreferredTheme());
+
+    toggleBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
