@@ -29,7 +29,7 @@ Berikut adalah beberapa layanan digital dan alat yang saya kembangkan:
 Mari terhubung atau bergabung dengan komunitas:
 
 <div align="left">
-  <a href="https://wa.me/6285779126072" target="_blank">
+  <a href="https://wa.me/6285182290703" target="_blank">
     <img src="https://img.shields.io/badge/WhatsApp-Personal_Chat-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Personal" />
   </a>
   <a href="https://chat.whatsapp.com/GZzZcCyx0iBHkY6ZOeHhuX" target="_blank">
